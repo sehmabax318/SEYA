@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 
-
-from app.api.routes import router
+from app.api.router import api_router
+from app.core.config import settings
 
 app = FastAPI(
-    title="SEYA API",
-    version="0.1.0",
-    description="Backend API for SEYA",
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
+    description=settings.APP_DESCRIPTION,
 )
 
-app.include_router(router)
+app.include_router(api_router)
