@@ -1,16 +1,12 @@
 from fastapi import FastAPI
 
+
+from app.api.routes import router
+
 app = FastAPI(
     title="SEYA API",
     version="0.1.0",
-    description="Backend API for SEYA"
+    description="Backend API for SEYA",
 )
 
-
-@app.get("/")
-def home():
-    return {
-        "assistant": "SEYA",
-        "status": "online",
-        "version": "0.1.0"
-    }
+app.include_router(router)
